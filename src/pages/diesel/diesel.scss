@@ -1,0 +1,21 @@
+page-diesel {
+  .closeReading {
+    margin-top: -25px;
+    margin-left: 15px;
+    width: 50%;
+    border-bottom: 1px solid black !important;
+  }
+  .item-block .item-inner {
+    border-bottom: 0px !important;
+  }
+  .bottomLine {
+    border-bottom: 1px solid black !important;
+  }
+  .label-ios + ion-input .text-input {
+    margin-left: 0px;
+  }
+  .content-ios hr {
+    height: 4.55px;
+    background-color: rgba(60, 47, 47, 0.83);
+  }
+}
