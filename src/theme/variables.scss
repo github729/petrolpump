@@ -62,7 +62,17 @@ $colors: (
 
 
 
+.item-inner {
+  box-shadow: 0 0px 0 0 !important;
+}
+.scroll-content {
+  margin-top:80px !important;
+  padding-bottom: 0px !important;
+}
+ion-app.md [padding] .scroll-content {
+  padding: 0px !important;
 
+}
 // App Theme
 // --------------------------------------------------
 // Ionic apps can have different themes applied, which can
@@ -86,3 +96,4 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+

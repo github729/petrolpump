@@ -10,11 +10,14 @@ import { TabsPage } from "../pages/tabs/tabs";
 import { UnitPricesPage } from "../pages/unitprices/unitprices";
 
 import { MyApp } from "./app.component";
+import { GetingNozzlesProvider } from '../providers/geting-nozzles/geting-nozzles';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [MyApp, PetrolPage, DieselPage, UnitPricesPage, TabsPage],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp, { tabsPlacement: "top" })
   ],
   bootstrap: [IonicApp],
@@ -22,7 +25,8 @@ import { MyApp } from "./app.component";
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    GetingNozzlesProvider 
   ]
 })
 export class AppModule {}

@@ -18,4 +18,7 @@ page-diesel {
     height: 4.55px;
     background-color: rgba(60, 47, 47, 0.83);
   }
+  .input-cover {
+    touch-action: none !important;
+  }
 }

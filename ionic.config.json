@@ -1,5 +1,7 @@
 {
   "name": "petrolpump",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }
