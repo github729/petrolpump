@@ -9,7 +9,7 @@ export class PetrolPage {
   liters:any;
   constructor(public navCtrl: NavController,
     private nozzleApi : GetingNozzlesProvider) {
-      this.nozzleApi.gettingNozzlesData().subscribe(data => {
+      this.nozzleApi.gettingNozzlesData('petrol').subscribe(data => {
         this.nozzlesData = data['data'];
       })
     }

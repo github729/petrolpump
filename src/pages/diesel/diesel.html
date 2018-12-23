@@ -1,146 +1,54 @@
 <ion-content padding>
-  <h2 style="text-align:center">B1 Nozzle</h2>
+  <div *ngFor="let nozzle of nozzlesData;let i=index">
+      <h2 style="text-align:center">{{nozzle.name | titlecase}} Nozzle</h2>
 
-  <ion-item>
-    <ion-label>Rate(Rs/Liter)</ion-label>
-    <ion-input
-      type="text"
-      class="closeReading"
-      [(ngModel)]="rate"
-      readonly
-      style="margin-left: 35px;"
-    ></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Opening Reading</ion-label>
-    <ion-input
-      type="text"
-      class="closeReading"
-      [(ngModel)]="b1OpeningReading"
-      readonly
-    ></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Closing Reading</ion-label>
-    <ion-input
-      type="text"
-      class="closeReading"
-      [(ngModel)]="b1ClosingReading"
-    ></ion-input>
-  </ion-item>
-  <p>
-    <button
-      ion-button
-      btn-orange
-      style="margin-right: 35px;
-      margin-left: 25px;"
-    >
-      Clear
-    </button>
-    <button ion-button btn-orange (click)="b1Compute()">Compute</button>
-  </p>
-  <hr />
-  <ion-item *ngIf="b1TotalAmount"
-    >Sales in Litres :
-    {{ b1ClosingReading - b1OpeningReading | number: "1.3-4" }}</ion-item
-  >
-  <ion-item *ngIf="b1TotalAmount"
-    >Amount in Rs : {{ b1TotalAmount | number: "1.3-4" }}</ion-item
-  >
-  <h2 style="text-align:center">B2 Nozzle</h2>
-
-  <ion-item>
-    <ion-label>Rate(Rs/Liter)</ion-label>
-    <ion-input
-      type="text"
-      class="closeReading"
-      [(ngModel)]="rate"
-      readonly
-      style="margin-left: 35px;"
-    ></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Opening Reading</ion-label>
-    <ion-input
-      type="text"
-      class="closeReading"
-      [(ngModel)]="b2OpeningReading"
-      readonly
-    ></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Closing Reading</ion-label>
-    <ion-input
-      type="text"
-      class="closeReading"
-      [(ngModel)]="b2ClosingReading"
-    ></ion-input>
-  </ion-item>
-  <p>
-    <button
-      ion-button
-      btn-orange
-      style="margin-right: 35px;
-      margin-left: 25px;"
-    >
-      Clear
-    </button>
-    <button ion-button btn-orange (click)="b2Compute()">Compute</button>
-  </p>
-  <hr />
-  <ion-item *ngIf="b2TotalAmount"
-    >Sales in Litres :
-    {{ b2ClosingReading - b2OpeningReading | number: "1.3-4" }}</ion-item
-  >
-  <ion-item *ngIf="b2TotalAmount"
-    >Amount in Rs : {{ b2TotalAmount | number: "1.3-4" }}</ion-item
-  >
-  <h2 style="text-align:center">B3 Nozzle</h2>
-
-  <ion-item>
-    <ion-label>Rate(Rs/Liter)</ion-label>
-    <ion-input
-      type="text"
-      class="closeReading"
-      [(ngModel)]="rate"
-      readonly
-      style="margin-left: 35px;"
-    ></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Opening Reading</ion-label>
-    <ion-input
-      type="text"
-      class="closeReading"
-      [(ngModel)]="b3OpeningReading"
-      readonly
-    ></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Closing Reading</ion-label>
-    <ion-input
-      type="text"
-      class="closeReading"
-      [(ngModel)]="b3ClosingReading"
-    ></ion-input>
-  </ion-item>
-  <p>
-    <button
-      ion-button
-      btn-orange
-      style="margin-right: 35px;
-      margin-left: 25px;"
-    >
-      Clear
-    </button>
-    <button ion-button btn-orange (click)="b3Compute()">Compute</button>
-  </p>
-  <hr />
-  <ion-item *ngIf="b3TotalAmount"
-    >Sales in Litres :
-    {{ b3ClosingReading - b3OpeningReading | number: "1.3-4" }}</ion-item
-  >
-  <ion-item *ngIf="b3TotalAmount"
-    >Amount in Rs : {{ b3TotalAmount | number: "1.3-4" }}</ion-item
-  >
-</ion-content>
+      <ion-item>
+        <ion-label>Rate(Rs/Liter)</ion-label>
+        <ion-input
+          type="text"
+          class="closeReading"
+          [(ngModel)]="nozzle.Petrols[0].rate"
+          readonly
+          style="margin-left: 35px;"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Opening Reading</ion-label>
+        <ion-input
+          type="text"
+          class="closeReading"
+          [(ngModel)]="nozzle.Petrols[0].openingReading"
+          readonly
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Closing Reading</ion-label>
+        <ion-input
+          type="number"
+          class="closeReading"
+          ngModel="{{nozzle.name}}closingReading"
+          #reading = 'ngModel'
+        ></ion-input>
+      </ion-item>
+      <p>
+        <button
+          ion-button
+          btn-orange
+          style="margin-right: 55px;
+          margin-left: 35px;"
+        >
+          Clear
+        </button>
+        <button ion-button btn-orange (click)="compute(nozzle.id,nozzle.Petrols[0].rate,nozzle.Petrols[0].openingReading,reading)">Compute</button>
+      </p>
+      <hr />
+      <ion-item *ngIf="b1TotalAmount"
+        >Sales in Litres :
+        {{ b1ClosingReading - b1OpeningReading | number: "1.3-4" }}</ion-item
+      >
+      <ion-item *ngIf="b1TotalAmount"
+        >Amount in Rs : {{ b1TotalAmount | number: "1.3-4" }}</ion-item
+      >
+    
+  </div>
+  </ion-content>

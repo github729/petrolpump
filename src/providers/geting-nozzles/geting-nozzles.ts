@@ -14,8 +14,8 @@ export class GetingNozzlesProvider {
     console.log('Hello GetingNozzlesProvider Provider');
   }
 
-  gettingNozzlesData() {
-   return  this.http.get('http://localhost:1332/v1/petrol/petrol')
+  gettingNozzlesData(fuel) {
+   return  this.http.get(`http://localhost:1332/v1/${fuel}`)
    .pipe()
   }
   saveRecords(submitObj) {
