@@ -1,0 +1,17 @@
+page-collections {
+  .segment-md .segment-button.segment-activated {
+    color: white;
+    background: #488aff;
+  }
+
+  .segment-md .segment-button {
+    border-bottom-style: none !important;
+  }
+
+  ion-segment.segment {
+    border: 0.5px solid #488aff !important;
+  }
+  ion-segment-button.segment-button:nth-child(n + 2) {
+    border-left: 1px solid;
+  }
+}

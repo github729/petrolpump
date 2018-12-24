@@ -1,55 +1,73 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
+    </ion-buttons>
+    <ion-title>Petrol Sales</ion-title>
+  </ion-navbar>
+</ion-header>
 <ion-content padding>
+  <div *ngFor="let nozzle of nozzlesData; let i = index">
+    <h2 style="text-align:center">{{ nozzle.name | titlecase }} Nozzle</h2>
 
-  <div *ngFor="let nozzle of nozzlesData;let i=index">
-      <h2 style="text-align:center">{{nozzle.name | titlecase}} Nozzle</h2>
-
-      <ion-item>
-        <ion-label>Rate(Rs/Liter)</ion-label>
-        <ion-input
-          type="text"
-          class="closeReading"
-          [(ngModel)]="nozzle.Petrols[0].rate"
-          readonly
-          style="margin-left: 35px;"
-        ></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Opening Reading</ion-label>
-        <ion-input
-          type="text"
-          class="closeReading"
-          [(ngModel)]="nozzle.Petrols[0].openingReading"
-          readonly
-        ></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Closing Reading </ion-label>
-        <ion-input
-          type="number"
-          class="closeReading"
-          ngModel="{{nozzle.name}}closingReading"
-          #reading = 'ngModel'
-        ></ion-input>
-      </ion-item>
-      <p>
-        <button
-          ion-button
-          btn-orange
-          style="margin-right: 55px;
+    <ion-item>
+      <ion-label>Rate(Rs/Liter)</ion-label>
+      <ion-input
+        type="text"
+        class="closeReading"
+        [(ngModel)]="nozzle.Petrols[0].rate"
+        readonly
+        style="margin-left: 35px;"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Opening Reading</ion-label>
+      <ion-input
+        type="text"
+        class="closeReading"
+        [(ngModel)]="nozzle.Petrols[0].openingReading"
+        readonly
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Closing Reading </ion-label>
+      <ion-input
+        type="number"
+        class="closeReading"
+        ngModel="{{ nozzle.name }}closingReading"
+        #reading="ngModel"
+      ></ion-input>
+    </ion-item>
+    <p>
+      <button
+        ion-button
+        btn-orange
+        style="margin-right: 55px;
         margin-left: 30px;"
-        >
-          Clear
-        </button>
-        <button ion-button btn-orange (click)="compute(nozzle.id,nozzle.Petrols[0].rate,nozzle.Petrols[0].openingReading,reading)">Compute</button>
-      </p>
-      <hr />
-      <ion-item *ngIf="totalAmount"
-        >Sales in Litres :
-        {{ liters | number: "1.3-4" }}</ion-item
       >
-      <ion-item *ngIf="totalAmount"
-        >Amount in Rs : {{ totalAmount | number: "1.3-4" }}</ion-item
+        Clear
+      </button>
+      <button
+        ion-button
+        btn-orange
+        (click)="
+          compute(
+            nozzle.id,
+            nozzle.Petrols[0].rate,
+            nozzle.Petrols[0].openingReading,
+            reading
+          )
+        "
       >
-    
+        Compute
+      </button>
+    </p>
+    <hr />
+    <ion-item *ngIf="totalAmount"
+      >Sales in Litres : {{ liters | number: "1.3-4" }}</ion-item
+    >
+    <ion-item *ngIf="totalAmount"
+      >Amount in Rs : {{ totalAmount | number: "1.3-4" }}</ion-item
+    >
   </div>
- </ion-content>
+</ion-content>

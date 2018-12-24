@@ -1,0 +1,23 @@
+page-search {
+  .end-date {
+    padding-left: 0px;
+    width: 44%;
+  }
+  .start-date {
+    width: 54%;
+    padding-right: 15px;
+  }
+  ion-list {
+    display: flex;
+  }
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    color: rgba(0, 0, 0, 0);
+    opacity: 1;
+    display: block;
+    background: url(https://mywildalberta.ca/images/GFX-MWA-Parks-Reservations.png)
+      no-repeat;
+    width: 20px;
+    height: 20px;
+    border-width: thin;
+  }
+}
