@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { NavController } from "ionic-angular";
-import { GetingNozzlesProvider } from "../../providers/geting-nozzles/geting-nozzles";
+import { GettingRecordssProvider } from "../../providers/records/getting-records";
 
 @Component({ selector: "page-diesel", templateUrl: "diesel.html" })
 export class DieselPage {
@@ -9,8 +9,8 @@ export class DieselPage {
   liters: any;
 
   constructor(public navCtrl: NavController,
-    private nozzleApi: GetingNozzlesProvider) {
-    this.nozzleApi.gettingNozzlesData('diesel').subscribe(data => {
+    private recordsApi: GettingRecordssProvider) {
+    this.recordsApi.gettingNozzlesData('diesel').subscribe(data => {
       this.nozzlesData = data['data'];
     })
   }
@@ -24,7 +24,7 @@ export class DieselPage {
       rate: rate,
       nozzleId: nozzleId
     }
-    this.nozzleApi.saveRecords(submitObj).subscribe(data => {
+    this.recordsApi.saveRecords(submitObj).subscribe(data => {
       console.log(data);
     });
   }

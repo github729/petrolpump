@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
-import { GetingNozzlesProvider } from '../../providers/geting-nozzles/geting-nozzles';
+import { GettingRecordssProvider } from '../../providers/records/getting-records';
 
 @Component({selector: 'page-petrol', templateUrl: 'petrol.html'})
 export class PetrolPage {
@@ -8,8 +8,8 @@ export class PetrolPage {
   totalAmount: any;
   liters:any;
   constructor(public navCtrl: NavController,
-    private nozzleApi : GetingNozzlesProvider) {
-      this.nozzleApi.gettingNozzlesData('petrol').subscribe(data => {
+    private recordsApi : GettingRecordssProvider) {
+      this.recordsApi.gettingNozzlesData('petrol').subscribe(data => {
         this.nozzlesData = data['data'];
       })
     }
@@ -23,7 +23,7 @@ export class PetrolPage {
       rate:rate,
       nozzleId:nozzleId
     }
-    this.nozzleApi.saveRecords(submitObj).subscribe(data => {
+    this.recordsApi.saveRecords(submitObj).subscribe(data => {
       console.log(data);
     });
   }

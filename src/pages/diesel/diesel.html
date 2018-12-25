@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-buttons start>
+    <ion-buttons end>
       <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
     </ion-buttons>
     <ion-title>Diesel Sales</ion-title>
@@ -15,7 +15,7 @@
       <ion-input
         type="text"
         class="closeReading"
-        [(ngModel)]="nozzle.Petrols[0].rate"
+        [(ngModel)]="nozzle.Records[0].rate"
         readonly
         style="margin-left: 35px;"
       ></ion-input>
@@ -25,7 +25,7 @@
       <ion-input
         type="text"
         class="closeReading"
-        [(ngModel)]="nozzle.Petrols[0].openingReading"
+        [(ngModel)]="nozzle.Records[0].openingReading"
         readonly
       ></ion-input>
     </ion-item>
@@ -53,8 +53,8 @@
         (click)="
           compute(
             nozzle.id,
-            nozzle.Petrols[0].rate,
-            nozzle.Petrols[0].openingReading,
+            nozzle.Records[0].rate,
+            nozzle.Records[0].openingReading,
             reading
           )
         "

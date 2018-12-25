@@ -8,18 +8,20 @@ import { Injectable } from '@angular/core';
   and Angular DI.
 */
 @Injectable()
-export class GetingNozzlesProvider {
+export class GettingRecordssProvider {
 
   constructor(public http: HttpClient) {
-    console.log('Hello GetingNozzlesProvider Provider');
   }
 
   gettingNozzlesData(fuel) {
-   return  this.http.get(`http://localhost:1332/v1/${fuel}`)
+   return  this.http.get(`http://192.168.2.21:1332/v1/${fuel}`)
    .pipe()
   }
   saveRecords(submitObj) {
-    return this.http.post('http://localhost:1332/v1/records',submitObj)
+    return this.http.post('http://192.168.2.21:1332/v1/records',submitObj)
   }
-
+  search(filterData) {
+    return this.http.post('http://192.168.2.21:1332/v1/filter',filterData)
+  }
+  
 }

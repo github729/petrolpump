@@ -12,9 +12,9 @@ import { PetrolPage } from "../pages/petrol/petrol";
 import { SearchPage } from "../pages/search/search";
 import { TabsPage } from "../pages/tabs/tabs";
 import { UnitPricesPage } from "../pages/unitprices/unitprices";
-import { GetingNozzlesProvider } from "../providers/geting-nozzles/geting-nozzles";
 
 import { MyApp } from "./app.component";
+import { GettingRecordssProvider } from "../providers/records/getting-records";
 
 @NgModule({
   declarations: [
@@ -29,7 +29,7 @@ import { MyApp } from "./app.component";
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp, { tabsPlacement: "top" })
+    IonicModule.forRoot(MyApp, { tabsPlacement: "bottom" })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -45,7 +45,7 @@ import { MyApp } from "./app.component";
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    GetingNozzlesProvider
+    GettingRecordssProvider
   ]
 })
 export class AppModule {}

@@ -10,8 +10,12 @@ page-collections {
 
   ion-segment.segment {
     border: 0.5px solid #488aff !important;
+    // border-radius: 25px;
   }
   ion-segment-button.segment-button:nth-child(n + 2) {
     border-left: 1px solid;
+  }
+  my-reocrds {
+    list-style-type: disc;
   }
 }
