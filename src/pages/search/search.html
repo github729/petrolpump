@@ -6,34 +6,33 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-buttons start>
-      <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
     </ion-buttons>
     <ion-title>Search</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
-    <ion-item>
-      <ion-label stacked>Start date</ion-label>
-      <ion-input type="date" [(ngModel)]="start_date"></ion-input>
-    </ion-item>
-
-    <ion-item >
-      <ion-label stacked>End date</ion-label>
-      <ion-input
-        type="date"
-        [(ngModel)]="end_date"
-        [min]="start_date"
-      ></ion-input>
-    </ion-item>
-  </ion-list>
-  <button
-    ion-button
-    style="margin-left: 40%"
-    (click)="search(start_date, end_date)"
-  >
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label stacked>Start date</ion-label>
+          <ion-input type="date" [(ngModel)]="start_date"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label stacked>End date</ion-label>
+          <ion-input type="date" [(ngModel)]="end_date" [min]="start_date"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <button ion-button style="margin-left: 40%" (click)="search(start_date, end_date)">
     SEARCH
   </button>
 </ion-content>

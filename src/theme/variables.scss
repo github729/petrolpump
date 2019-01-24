@@ -71,7 +71,11 @@ $colors: (
 }
 ion-app.md [padding] .scroll-content {
   padding: 0px !important;
-
+}
+hr {
+  height: 3px !important;
+  margin: 8px !important;
+  background-color:black !important;
 }
 // App Theme
 // --------------------------------------------------

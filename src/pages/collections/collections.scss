@@ -2,6 +2,7 @@ page-collections {
   .segment-md .segment-button.segment-activated {
     color: white;
     background: #488aff;
+    border-radius: 25px;
   }
 
   .segment-md .segment-button {
@@ -10,12 +11,20 @@ page-collections {
 
   ion-segment.segment {
     border: 0.5px solid #488aff !important;
-    // border-radius: 25px;
+    border-radius: 25px;
   }
-  ion-segment-button.segment-button:nth-child(n + 2) {
-    border-left: 1px solid;
+  // ion-segment-button.segment-button:nth-child(n + 2) {
+  //   border-left: 1px solid;
+  // }
+  .heading {
+    border: 1px solid black;
+    margin-left: 20px;
+    margin-right: 20px;
+    background: black;
+    color: white;
+    box-shadow: 2px 3px #888888;
   }
-  my-reocrds {
+  .my-reocrds {
     list-style-type: disc;
   }
 }

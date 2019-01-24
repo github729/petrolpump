@@ -15,10 +15,12 @@ import { GettingRecordssProvider } from '../../providers/records/getting-records
   templateUrl: 'collections.html',
 })
 export class CollectionsPage {
-  filterValue: any = 'today';
+  filterValue: any = 'yestarday';
   totalRecords: any = [];
   petrolRecords: any = [];
   dieselRecords: any = [];
+  totalPetrolAmount: number = 0;
+  totalDieselAmount: number = 0;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private recordsApi: GettingRecordssProvider) {
@@ -29,8 +31,13 @@ export class CollectionsPage {
     this.getFilterData();
   }
   onSegmentChange() {
-    this.getFilterData();
+    this.dieselRecords = [];
+    this.petrolRecords = [];
+    this.totalRecords = [];
+    this.totalPetrolAmount = 0;
+    this.totalDieselAmount = 0;
 
+    this.getFilterData();
   }
 
   getFilterData() {
@@ -39,14 +46,25 @@ export class CollectionsPage {
     }
     this.recordsApi.search(filterObj).subscribe(data => {
       this.totalRecords = data['data'];
-      this.totalRecords.forEach(record => {
+      for (let i = 0; i < this.totalRecords.length; i++) {
+        let totalLiters = 0;
+        let totalAmount = 0;
+        for (let j = 0; j < this.totalRecords[i].Records.length; j++) {
+          totalLiters = totalLiters + (this.totalRecords[i].Records[j].closingReading - this.totalRecords[i].Records[j].openingReading);
+          totalAmount = totalAmount + (this.totalRecords[i].Records[j].closingReading - this.totalRecords[i].Records[j].openingReading) * this.totalRecords[i].Records[j].rate;
+          this.totalRecords[i].totalLiters = totalLiters;
+          this.totalRecords[i].totalAmount = totalAmount;
+        }
+      };
+      this.totalRecords.forEach((record, index) => {
         if (record.fuelType == 'petrol') {
+          this.totalPetrolAmount = this.totalPetrolAmount + record.totalAmount;
           this.petrolRecords.push(record);
         } else {
+          this.totalDieselAmount = this.totalDieselAmount + record.totalAmount;
           this.dieselRecords.push(record);
         }
-      });
-      console.log(this.petrolRecords,this.dieselRecords)
+      })
     })
   }
 

@@ -4,8 +4,6 @@ import { StatusBar } from "@ionic-native/status-bar";
 import { Platform } from "ionic-angular";
 
 import { MenuPage } from "../pages/menu/menu";
-import { SearchPage } from "../pages/search/search";
-import { TabsPage } from "../pages/tabs/tabs";
 
 @Component({ templateUrl: "app.html" })
 export class MyApp {
@@ -20,6 +18,12 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
+      // let status bar overlay webview
+      statusBar.overlaysWebView(true);
+
+      // set status bar to white
+      statusBar.backgroundColorByHexString('#33000000');
+
       splashScreen.hide();
     });
   }

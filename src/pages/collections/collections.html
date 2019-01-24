@@ -6,7 +6,7 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-buttons start>
+    <ion-buttons left>
       <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
@@ -18,31 +18,41 @@
 <ion-content>
   <div padding>
     <ion-segment [(ngModel)]="filterValue" (ionChange)="onSegmentChange()">
-      <ion-segment-button value="today"> Today </ion-segment-button>
+      <ion-segment-button value="yestarday"> YestarDay </ion-segment-button>
       <ion-segment-button value="thisWeek"> Week </ion-segment-button>
       <ion-segment-button value="thisMonth"> Month </ion-segment-button>
     </ion-segment>
   </div>
-  <div>
+  <div *ngIf="petrolRecords.length>0">
     <ion-grid>
-      <ion-row>
+      <h4 class="heading">Petrol Cash</h4>
+      <ion-row *ngFor="let petrol of petrolRecords;let i = index">
         <ion-col>
           <ul class="my-records">
-            <li>List item</li>
-          </ul>
-        </ion-col>
-        <ion-col>
-          <ul class="my-records">
-            <li>List item</li>
+            <li>Nozzle {{petrol.name}}: {{ petrol.totalLiters}} = {{ petrol.totalAmount | currency:'INR'}}</li>
           </ul>
         </ion-col>
       </ion-row>
-    </ion-grid>
-    <!-- <section>    
-      <ul class="my-records">
-        <li>List item</li>
-        <li>List item</li>
+      <ul class="my-records" style="margin-left: 4px;">
+        <li>Total Petrol Cash : {{ totalPetrolAmount | currency:'INR'}}</li>
       </ul>
-    </section> -->
+    </ion-grid>
   </div>
+  <div *ngIf="dieselRecords.length>0">
+    <ion-grid>
+      <h4 class="heading">Diesel Cash</h4>
+      <ion-row *ngFor="let diesel of dieselRecords;">
+        <ion-col>
+          <ul class="my-records">
+            <li>Nozzle {{diesel.name}}: {{ diesel.totalLiters}} = {{diesel.totalAmount | currency:'INR'}}</li>
+          </ul>
+        </ion-col>
+      </ion-row>
+      <ul class="my-records" style="margin-left: 4px;">
+        <li>Total Diesel Cash : {{ totalDieselAmount | currency:'INR'}}</li>
+      </ul>
+    </ion-grid>
+  </div>
+  <hr>
+  <p style="margin-left:30px">Total : {{ totalPetrolAmount + totalDieselAmount | currency:'INR'}}</p>
 </ion-content>

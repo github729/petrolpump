@@ -9,7 +9,6 @@ import { CollectionsPage } from "../pages/collections/collections";
 import { DieselPage } from "../pages/diesel/diesel";
 import { MenuPage } from "../pages/menu/menu";
 import { PetrolPage } from "../pages/petrol/petrol";
-import { SearchPage } from "../pages/search/search";
 import { TabsPage } from "../pages/tabs/tabs";
 import { UnitPricesPage } from "../pages/unitprices/unitprices";
 
@@ -23,8 +22,6 @@ import { GettingRecordssProvider } from "../providers/records/getting-records";
     DieselPage,
     UnitPricesPage,
     TabsPage,
-    MenuPage,
-    CollectionsPage
   ],
   imports: [
     BrowserModule,
