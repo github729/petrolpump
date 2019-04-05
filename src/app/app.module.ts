@@ -14,6 +14,8 @@ import { UnitPricesPage } from "../pages/unitprices/unitprices";
 
 import { MyApp } from "./app.component";
 import { GettingRecordssProvider } from "../providers/records/getting-records";
+import { LoginPage } from "../pages/login/login";
+import { MainPage } from "../pages/main/main";
 
 @NgModule({
   declarations: [
@@ -22,6 +24,10 @@ import { GettingRecordssProvider } from "../providers/records/getting-records";
     DieselPage,
     UnitPricesPage,
     TabsPage,
+    MenuPage,
+    CollectionsPage,
+    LoginPage,
+    MainPage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +42,9 @@ import { GettingRecordssProvider } from "../providers/records/getting-records";
     UnitPricesPage,
     TabsPage,
     MenuPage,
-    CollectionsPage
+    CollectionsPage,
+    LoginPage,
+    MainPage
   ],
   providers: [
     StatusBar,

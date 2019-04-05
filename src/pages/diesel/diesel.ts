@@ -12,6 +12,7 @@ export class DieselPage {
     private recordsApi: GettingRecordssProvider) {
     this.recordsApi.gettingNozzlesData('diesel').subscribe(data => {
       this.nozzlesData = data['data'];
+      console.log(this.nozzlesData);
     })
   }
 

@@ -4,10 +4,12 @@ import { StatusBar } from "@ionic-native/status-bar";
 import { Platform } from "ionic-angular";
 
 import { MenuPage } from "../pages/menu/menu";
+import { LoginPage } from "../pages/login/login";
+import { MainPage } from "../pages/main/main";
 
 @Component({ templateUrl: "app.html" })
 export class MyApp {
-  rootPage: any = MenuPage;
+  rootPage: any = MainPage;
 
   constructor(
     platform: Platform,
